@@ -12,7 +12,6 @@ module tb_dsm_from_file;
     parameter DSM_RATE_HZ     = 81920;        
     parameter CLKS_PER_SAMPLE = 1221;         
     parameter FILE_NAME       = "dsm_input.txt";
-    // Adjust this if you generated more/less samples in MATLAB
     parameter MAX_SAMPLES     = 1048576;      
 
     // ========================================================================
@@ -60,7 +59,6 @@ module tb_dsm_from_file;
         clk_counter = 0;
 
         // 2. Dump Waves (Standard VCD for broad compatibility)
-        // If using Verdi, this file can be opened with 'verdi -ssf dsm_waves.vcd'
         $dumpfile("dsm_waves.vcd");
         $dumpvars(0, tb_dsm_from_file);
 
