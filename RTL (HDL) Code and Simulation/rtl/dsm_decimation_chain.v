@@ -11,7 +11,7 @@ module dsm_decimation_chain (
     input  wire        rst_n,      // Active Low Reset
     input  wire        dsm_in,     // 1-bit DSM Input Data
     input  wire        dsm_en,     // Data Enable Pulse (active for 1 cycle @ 81.92 kHz)
-    output reg [23:0]  pcm_out,    // Final 24-bit Audio Data (1.28 kHz)
+    output reg [23:0]  pcm_out,    // Final 24-bit Data (1.28 kHz)
     output reg         pcm_valid   // Valid pulse for output data
 );
 
@@ -356,6 +356,8 @@ module fir_decimator_r4 (
             7'd115: coeff = -16'd7;
             7'd116: coeff = -16'd4;
             7'd117: coeff = 16'd3;
+            7'd118: coeff = -16'd2;
+            7'd119: coeff = 16'd1;
             // Safe Default to avoid X
             default: coeff = 16'd0;
         endcase
